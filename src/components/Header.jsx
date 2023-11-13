@@ -1,5 +1,3 @@
-import imgDoge from '../assets/images/doge.jpg'
-
 export default function Header({ user }) {
     return (
         <header>
