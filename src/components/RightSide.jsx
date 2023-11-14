@@ -1,15 +1,15 @@
 import imgElon from '../assets/images/elon.jpg'
 import imgZuck from '../assets/images/zuck.jpg'
 
-export default function RightSide() {
+export default function RightSide({ theme }) {
     return (
         <aside>
-            <div className="search-section">
+            <div className={theme === 'dark' ? 'search-section dark' : 'search-section'}>
                 <i className="fa-solid fa-magnifying-glass search-icon"></i>
                 <input className="search" type="text" placeholder="Search Twitter" />
             </div>
 
-            <div className="widget">
+            <div className={theme === 'dark' ? 'widget dark' : 'widget'}>
                 <div className="widget-grid">
                     <h1>Get Verified</h1>
                     <h3>Subscribe to unlock nothing.</h3>
@@ -18,7 +18,7 @@ export default function RightSide() {
                 </div>
             </div>
 
-            <div className="widget">
+            <div className={theme === 'dark' ? 'widget dark' : 'widget'}>
                 <h1>What's happening</h1>
 
                 <div className="news-block">
@@ -45,7 +45,7 @@ export default function RightSide() {
                     </div>
                 </div>
             </div>
-            <div className="widget">
+            <div className={theme === 'dark' ? 'widget dark' : 'widget'}>
                 <h1>Who to follow</h1>
 
                 <div className="follow-block">

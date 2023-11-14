@@ -1,6 +1,16 @@
-export default function Header({ user }) {
+export default function Header({ user, theme, setTheme }) {
+    const handleChange = () => {
+      if(theme === 'dark') {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    }
+
     return (
-        <header>
+        <header className={theme}>
+          <input id="darkMode" type="checkbox" checked={theme === 'dark'} onChange={handleChange}></input>
+          <label htmlFor="darkMode">Enable Dark Mode</label>
             <div className="logo">
                 <i className="fa-brands fa-twitter"></i>
             </div>
@@ -70,7 +80,7 @@ export default function Header({ user }) {
 
             <button className="tweet-btn">Tweet</button>
 
-            <div className="profile-card">
+            <div className={theme === 'dark' ? 'profile-card dark' : 'profile-card'}>
                 <div className="profile-icon"><img src={user.profileImage}/></div>
 
                 <div className="profile-details">

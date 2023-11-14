@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import imgDoge from '../assets/images/doge.jpg'
 
-export default function CreateTweet({ tweets, setTweets, user }) {
+export default function CreateTweet({ tweets, setTweets, user, theme }) {
     const [content, setContent] = useState('')
-    
+
     const addTweet = (e) => {
         e.preventDefault()
         setTweets([
@@ -21,7 +21,7 @@ export default function CreateTweet({ tweets, setTweets, user }) {
     }
 
     return (
-        <div className="create-tweet">
+        <div className={theme === 'dark' ? 'create-tweet dark' : 'create-tweet'}>
             <form onSubmit={addTweet}>
                 <div className="avatar-section">
                     <div className="profile-icon"><img src={imgDoge}/></div>
