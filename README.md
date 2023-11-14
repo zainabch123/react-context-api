@@ -27,12 +27,13 @@ Your second task is to combine Context and Local Storage together.
    setter function (`setTheme`). 
     1. Like any other variable or component, be sure to give it an appropriate name to distinguish it from the other 
        Context.
-2. For each of the components in the `/components` directory, replace the `const theme = 'light'` line of code so that 
-   this variable is now equal to the value of the `theme` state provided by your **Context**.
+2. For each of the components in the `/components` directory, remove the prop-drilling approach used for `theme` (and 
+   `setTheme` if applicable) and instead use the value provided by your **Context**.
     1. There MUST be a variable called `theme` in each component!
-3. Once you have correctly applied the theme to all the components, you will see that the app design will 
+    2. There MUST be a function called `setTheme` where it is used.
+    3. You do NOT need to change any other code to make the Dark Mode work!
+3. Once you have correctly applied the `theme` to all the components, you will see that the app design will 
    dynamically update to reflect the selected theme. However, whenever you refresh the page, the `theme` state gets 
    reset. Let's prevent this by storing the value of `theme` in our Local Storage!
-   1. Make sure that when you toggle the "Enable Dark Mode" checkbox, you save the `theme` value to local storage.
-   2. Where we intialise the theme state, we should set the value to be equal to the local storage theme value if 
-      there is one (otherwise, it should default to `"light"`).
+   1. When you toggle the "Enable Dark Mode" checkbox, save the `theme` value to local storage.
+   2. When we refresh the app, how could we use the local storage value to set the theme's default value?
