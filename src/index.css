@@ -532,8 +532,11 @@ header.dark .tweet-btn:hover {
     color: var(--primary-darker);
 }
 
-.create-tweet .tweet-btn:disabled:hover {
-    background-color: var(--primary);
+.create-tweet .tweet-btn:disabled:hover,
+.create-tweet.dark .tweet-btn:disabled:hover
+{
+    background-color: var(--grey);
+    color: var(--white);
 }
 
 .space {
