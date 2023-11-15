@@ -14,12 +14,12 @@ export default function Header({ user, theme, setTheme }) {
     return (
         <header className={theme}>
             <div>
-                <div>
+                <div className="dark-mode-container">
                     <input id="darkMode" type="checkbox" checked={theme === 'dark'} onChange={handleCheckChange}></input>
                     <label htmlFor="darkMode">Enable Dark Mode</label>
                 </div>
                 <div>
-                    <button onClick={handleButtonClick}>Clear Locally Saved Settings</button>
+                    <button className="clear-settings-btn" onClick={handleButtonClick}>Clear Locally Saved Settings</button>
                 </div>
             </div>
             <div className="logo">
