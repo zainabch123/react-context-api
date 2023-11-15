@@ -16,8 +16,18 @@ the `App.jsx` component, which are then passed down as props to multiple compone
 passed down to a number of components.
 
 ### Part 1 - Your First Context
-Your task is to completely remove the prop drilling of the `user` state, the `tweets` state, and the `setTweets` 
-function, replacing it with application level state using **Context**.
+Your task is to completely remove the prop drilling of the `user` state, the `tweets` state, and the `setTweets`
+function. You wil be replacing them with "application-level state" by using **Context**.
+1. In the **App** component, import `createContext` and use it to create a new Context Component.
+   1. This Context Component must be defined OUTSIDE of the App function.
+   2. You can give this Context Component any name - make it descriptive/meaningful.
+2. Wrap this Context Component around the child components of the App component. Update it to use the `<Context.
+   Provider>` Component and pass the relevant data into the `value` attribute.
+3. Remove the props from the child components (both where they are used in App, and in their respective component
+   files).
+4. In the child components, import the `useContext` hook and use this to get the state values/functions that were
+   passed into the `<Context.Provider>` in the App component.
+5. Use these values in the child components as necessary (they replace the values we originally got from the props).
 
 > ⛔ Do not move onto Part 2 until your teacher has covered the material on Local Storage!
 
