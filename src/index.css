@@ -571,7 +571,6 @@ aside {
 
 .search-section.dark {
     background-color: var(--grey);
-    color: var(--white);
 }
 
 .search-section .search-icon {
@@ -579,10 +578,18 @@ aside {
     color: rgb(83, 100, 113);
 }
 
+.search-section.dark .search-icon {
+    color: var(--primary);
+}
+
 .search-section .search {
     border: none;
     background-color: transparent;
     font-size: 1rem;
+}
+
+.search-section.dark .search {
+    color: var(--white);
 }
 
 .search-section .search:focus {
