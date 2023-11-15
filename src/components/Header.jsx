@@ -1,5 +1,5 @@
 export default function Header({ user, theme, setTheme }) {
-    const handleChange = () => {
+    const handleCheckChange = () => {
       if(theme === 'dark') {
         setTheme('light');
       } else {
@@ -7,10 +7,21 @@ export default function Header({ user, theme, setTheme }) {
       }
     }
 
+    const handleButtonClick = () => {
+      console.log("CLICK!");
+    }
+
     return (
         <header className={theme}>
-          <input id="darkMode" type="checkbox" checked={theme === 'dark'} onChange={handleChange}></input>
-          <label htmlFor="darkMode">Enable Dark Mode</label>
+            <div>
+                <div>
+                    <input id="darkMode" type="checkbox" checked={theme === 'dark'} onChange={handleCheckChange}></input>
+                    <label htmlFor="darkMode">Enable Dark Mode</label>
+                </div>
+                <div>
+                    <button onClick={handleButtonClick}>Clear Locally Saved Settings</button>
+                </div>
+            </div>
             <div className="logo">
                 <i className="fa-brands fa-twitter"></i>
             </div>
