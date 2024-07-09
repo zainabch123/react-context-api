@@ -6,10 +6,11 @@ import defaultTweets from "./assets/data/tweets.js";
 import user from "./assets/data/user.js";
 
 export const MyContext = createContext();
+export const MyTheme = createContext();
 
 function App() {
   const [tweets, setTweets] = useState(defaultTweets);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
     theme === "light"
@@ -18,12 +19,14 @@ function App() {
   }, [theme]);
 
   return (
-    <MyContext.Provider value={{ user, theme, setTheme, tweets }}>
-      <div className="container">
-        <Header />
-        <Tweets />
-        <RightSide />
-      </div>
+    <MyContext.Provider value={{ user, tweets, setTweets }}>
+      <MyTheme.Provider value={{ theme, setTheme }}>
+        <div className="container">
+          <Header />
+          <Tweets />
+          <RightSide />
+        </div>
+      </MyTheme.Provider>
     </MyContext.Provider>
   );
 }

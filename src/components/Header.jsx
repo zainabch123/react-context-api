@@ -1,28 +1,34 @@
 import { useContext } from "react";
-import { MyContext } from "../App";
+import { MyContext, MyTheme } from "../App";
 
 export default function Header() {
-  const context = useContext(MyContext);
+  const { user } = useContext(MyContext);
+  const { theme, setTheme } = useContext(MyTheme);
+
   const handleCheckChange = () => {
-    if (context.theme === "dark") {
-      context.setTheme("light");
+    if (theme === "dark") {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
     } else {
-      context.setTheme("dark");
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
     }
   };
 
   const handleButtonClick = () => {
     console.log("CLICK!");
+    localStorage.removeItem("theme");
+    setTheme("light");
   };
 
   return (
-    <header className={context.theme}>
+    <header className={theme}>
       <div>
         <div className="dark-mode-container">
           <input
             id="darkMode"
             type="checkbox"
-            checked={context.theme === "dark"}
+            checked={theme === "dark"}
             onChange={handleCheckChange}
           ></input>
           <label htmlFor="darkMode">Enable Dark Mode</label>
@@ -102,18 +108,14 @@ export default function Header() {
 
       <button className="tweet-btn">Tweet</button>
 
-      <div
-        className={
-          context.theme === "dark" ? "profile-card dark" : "profile-card"
-        }
-      >
+      <div className={theme === "dark" ? "profile-card dark" : "profile-card"}>
         <div className="profile-icon">
-          <img src={context.user.profileImage} />
+          <img src={user.profileImage} />
         </div>
 
         <div className="profile-details">
-          <h4>{context.user.name}</h4>
-          <small>{context.user.handle}</small>
+          <h4>{user.name}</h4>
+          <small>{user.handle}</small>
         </div>
 
         <div className="action">
